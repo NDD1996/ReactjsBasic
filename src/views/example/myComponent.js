@@ -1,29 +1,58 @@
-import React from 'react';
+import React from "react";
 
 class MyComponent extends React.Component {
-
-
     state = {
-        name: "nguyễn Đạt",
-        age: 18,
-        adress: "Bắc Ninh"
+        firstName: '',
+        lastName: ''
+    };
+
+    hanldeChangeFirstName = (event) => {
+        this.setState({
+            firstName: event.target.value
+        })
     }
 
+    hanldeChangeLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+
+    hanldeClick = (event) => {
+        event.preventDefault();
+        alert('ok click nhe');
+    }
     render() {
+        // let name = 'Nguyễn Đức Đạt';
 
-
-        let name = 'Nguyễn Đức Đạt';
-
-        return(
-            <>
-            <div>
-                hello my name is {name}
-            </div>
-            <div>
-                age is: {this.state.age}
-            </div>
-            </>
-        )
+    return (
+    <>
+        <form action="/">
+        <label htmlfor="fname">First name:</label>
+        <br/>
+        <input
+            type="text"
+            value={this.state.firstName}
+            onChange={(event) => this.hanldeChangeFirstName(event)}
+        />
+        <br />
+        <label htmlfor="lname">Last name:</label>
+        <br/>
+        <input
+            type="text"
+            value={this.state.lastName}
+            onChange={(event) => this.hanldeChangeLastName(event)}
+        />
+        <br/>
+        <br/>
+        <input
+            type="submit"
+            value="Submit"
+            onClick={(event) => this.hanldeClick(event)}
+        />
+        </form>
+    </>
+        );
     }
 }
 
