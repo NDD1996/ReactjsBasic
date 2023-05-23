@@ -1,10 +1,25 @@
 import React from "react";
+import ChildComponent from "./childComponent";
 
 class MyComponent extends React.Component {
     state = {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        arr: [
+            {
+                id: 1,
+                player: 'messi',
+                salary: '1000$'
+            },
+            {
+                id: 2,
+                player: 'ronaldo',
+                salary: '2000$'
+            }
+        ]
     };
+
+
 
     hanldeChangeFirstName = (event) => {
         this.setState({
@@ -23,12 +38,12 @@ class MyComponent extends React.Component {
         alert('ok click nhe');
     }
     render() {
-        // let name = 'Nguyễn Đức Đạt';
+        console.log('>>>> data input:', this.state )
 
     return (
     <>
         <form action="/">
-        <label htmlfor="fname">First name:</label>
+        <label htmlFor="fname">First name:</label>
         <br/>
         <input
             type="text"
@@ -36,7 +51,7 @@ class MyComponent extends React.Component {
             onChange={(event) => this.hanldeChangeFirstName(event)}
         />
         <br />
-        <label htmlfor="lname">Last name:</label>
+        <label htmlFor="lname">Last name:</label>
         <br/>
         <input
             type="text"
@@ -51,6 +66,13 @@ class MyComponent extends React.Component {
             onClick={(event) => this.hanldeClick(event)}
         />
         </form>
+
+        <ChildComponent
+            name = {this.state.firstName}
+            age = {27}
+            arr = {this.state.arr}
+        />
+
     </>
         );
     }
