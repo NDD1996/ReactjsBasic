@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.scss";
-import MyComponent from "./example/myComponent.js";
+// import MyComponent from "./example/myComponent.js";
+import ListTodo from "./todos/ListTodo";
 
 /*
  * components: class component | function component
@@ -11,10 +12,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          simple TODO Apps with React.js (Ndd)
         </p>
-      
-        <MyComponent />
+        <ListTodo />
+        {/* <MyComponent /> */}
       </header>
     </div>
   );

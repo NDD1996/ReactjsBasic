@@ -18,16 +18,32 @@ class MyComponent extends React.Component {
         ]
     };
 
-    
+    addNewPlayer = (player) => {
+        this.setState({
+            arr: [...this.state.arr, player]
+        })
+    }
+
+    deletePlayer = (player) => {
+        let currentPlayer = this.state.arr;
+        currentPlayer = currentPlayer.filter(item => item.id !== player.id);
+        this.setState({
+            arr: currentPlayer
+        })
+    }
+
     render() {
         console.log('>>>> data input:', this.state )
 
     return (
     <>
-        <AddComponent/>
+        <AddComponent
+            addNewPlayer = {this.addNewPlayer}
+        />
 
         <ChildComponent
             arr = {this.state.arr}
+            deletePlayer = {this.deletePlayer}
         />
 
     </>

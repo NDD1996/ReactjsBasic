@@ -21,13 +21,26 @@ class AddComponent extends React.Component {
 
     hanldeClick = (event) => {
         event.preventDefault();
-        alert('ok click nhe');
+        if(!this.state.player || !this.state.salary) {
+            alert('Missing required params');
+            return;
+        }
         console.log('>>>> check data input', this.state)
+        this.props.addNewPlayer({      //function props
+            id: Math.floor(Math.random()*101),
+            player: this.state.player,
+            salary: this.state.salary
+        })
+        this.setState({
+            player: '',
+            salary: ''
+        })       
     }
+
 
     render() {
         return(
-            <form action="/">
+            <form  action="/">
         <label htmlFor="fname">player:</label>
         <br/>
         <input

@@ -7,10 +7,14 @@ class ChildComponent extends React.Component {
         flag: false
     }
 
-    hanldeShowHide = () => {
+    handleShowHide = () => {
         this.setState({
             flag: !this.state.flag
         })
+    }
+
+    handleDelete = (event) => {
+        this.props.deletePlayer(event);
     }
 
     render() {
@@ -21,7 +25,7 @@ class ChildComponent extends React.Component {
         <>
             {flag === false ?
                 <div>
-                    <button onClick={() => this.hanldeShowHide()}>show</button>
+                    <button onClick={() => this.handleShowHide()}>show</button>
                 </div>
             :
             <>
@@ -30,14 +34,14 @@ class ChildComponent extends React.Component {
                         arr.map((item,index) => {
                             return (
                                 <div key={item.id}>
-                                    {item.player} - {item.salary} $
+                                    {item.player} - {item.salary} $<span onClick={() => this.handleDelete(item)}> X</span>
                                 </div>
                             )
                         })
                     }
                 </div>
                 <div>
-                    <button onClick={() => this.hanldeShowHide()}>hide</button>
+                    <button onClick={() => this.handleShowHide()}>hide</button>
                 </div>
             </>
             }
