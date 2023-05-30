@@ -47,18 +47,19 @@ class ListTodo extends React.Component {
 
         //save
         if(isEmptyObj >0 && editTodo.id === player.id) {
-            console.log(editTodo)
+            console.log(editTodo);
             let listTodosCopy = [...listTodos];
 
             let obj = listTodosCopy.find(item => item.id === player.id)
-
+            console.log(listTodosCopy);
             obj.player = editTodo.player
-            
+            console.log(listTodosCopy);
             this.setState({
                 listTodos: listTodosCopy,
                 editTodo: ''
 
             })
+            toast.success("Update thành công")
             return
         }   
         
