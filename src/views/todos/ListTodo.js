@@ -40,6 +40,29 @@ class ListTodo extends React.Component {
     }
 
     handleEdit = (player) => {
+
+        let { editTodo, listTodos } = this.state;
+
+        let isEmptyObj = Object.keys(editTodo).length
+
+        //save
+        if(isEmptyObj >0 && editTodo.id === player.id) {
+            console.log(editTodo)
+            let listTodosCopy = [...listTodos];
+
+            let obj = listTodosCopy.find(item => item.id === player.id)
+
+            obj.player = editTodo.player
+            
+            this.setState({
+                listTodos: listTodosCopy,
+                editTodo: ''
+
+            })
+            return
+        }   
+        
+        //edit
         this.setState({
             editTodo: player
         })
@@ -58,7 +81,6 @@ class ListTodo extends React.Component {
 
         let isEmptyObj = Object.keys(editTodo).length
         
-        console.log(isEmptyObj)
 
         return (
             <div className="list-todo-container">
@@ -71,7 +93,7 @@ class ListTodo extends React.Component {
                             return(
                                 <div className="todo-child" key={item.id}>
 
-                                    {isEmptyObj >0 && editTodo.id == item.id ?
+                                    {isEmptyObj >0 && editTodo.id === item.id ?
                                         <span>
                                         <input value={editTodo.player}
                                             onChange={this.handleOnchangeEdit}
@@ -83,7 +105,7 @@ class ListTodo extends React.Component {
 
                                     <button className="edit"
                                         onClick={() => this.handleEdit(item)}>
-                                        {isEmptyObj > 0 && editTodo.id == item.id ? 'Save' : 'Edit'}
+                                        {isEmptyObj > 0 && editTodo.id === item.id ? 'Save' : 'Edit'}
                                     </button>
 
                                     <button className="delete"
