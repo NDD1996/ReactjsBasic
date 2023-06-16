@@ -57,7 +57,6 @@ class ListTodo extends React.Component {
             this.setState({
                 listTodos: listTodosCopy,
                 editTodo: ''
-
             })
             toast.success("Update thành công")
             return
