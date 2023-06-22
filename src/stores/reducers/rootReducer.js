@@ -1,5 +1,5 @@
 const initState = {
-    user: [
+    users: [
         {id:1, name: 'Đạt'},
         {id:2, name: 'Đức'}
     ]

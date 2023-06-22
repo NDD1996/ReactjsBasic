@@ -2,6 +2,8 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Outlet } from "react-router-dom";
 import logo from  '../../assets/images/dat.jpeg'
+import { connect } from "react-redux";
+
 
 class Home extends React.Component {
 
@@ -12,7 +14,7 @@ class Home extends React.Component {
     // }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.dataRedux)
         return (
             <>
             <div>
@@ -30,4 +32,10 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        dataRedux: state.users[0].id
+    }
+}
+
+export default connect(mapStateToProps)(Home);
