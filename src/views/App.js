@@ -9,14 +9,13 @@ import Nav from "./nav/Nav";
 import Home from "./example/Home";
 import ListUser from "./users/ListUser";
 
-import { BrowserRouter, Outlet, Route, Link, Routes } from "react-router-dom";
+import { Route, Link, Routes } from "react-router-dom";
 
 /*
  * components: class component | function component
  */
 function App() {
   return (
-    <BrowserRouter>
       <div className="App">
         <header className="App-header">
           <Nav />
@@ -44,7 +43,6 @@ function App() {
           theme="light"
         />
       </div>
-    </BrowserRouter>
   );
 }
 

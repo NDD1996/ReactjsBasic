@@ -1,3 +1,5 @@
+
+
 const initState = {
     users: [
         {id:1, name: 'Đạt'},
@@ -5,6 +7,7 @@ const initState = {
     ]
 }
 
+// hàm lưu trữ dữ liệu redux
 const rootReducer = (state = initState, action) => {
     return state;
 }

@@ -5,17 +5,20 @@ import reportWebVitals from './reportWebVitals';
 import './styles/global.scss';
 
 import { Provider } from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
 import { createStore } from 'redux';
 import rootReducer from './stores/reducers/rootReducer';
 
+// tạo store lưu trữ của redux
 const reduxStore = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={reduxStore}>
-      <App />
-
+    <Provider store={reduxStore}>       {/* chạy redux song song cùng vs react */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

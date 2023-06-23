@@ -34,8 +34,8 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        dataRedux: state.users[0].id
+        dataRedux: state.users              // redux return cái gì thì state là cái đó
     }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Home);          // connect để kết nối react vs redux tại file Home.js này
