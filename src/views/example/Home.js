@@ -39,7 +39,8 @@ class Home extends React.Component {
                 <img src={logo} style={{ width: "500px", height: "500px", margin: "10px" }}/>
             </div> */}
             <div>
-                {listUsers && listUsers.length>0 &&
+                {listUsers && listUsers.length > 0 &&
+
                     listUsers.map((item, index) => {
                         return(
                             <div key={item.id}>
@@ -67,13 +68,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteUserRedux: (userDelete) => {
-
             // dispatch(a): a chính là tham số action của function redux
             dispatch({type: 'DELETE_USER', payload: userDelete})
         },
 
         addUserRedux: () => {
-
             // dispatch(a): a chính là tham số action của function redux
             dispatch({ type: 'ADD_USER' })
         }

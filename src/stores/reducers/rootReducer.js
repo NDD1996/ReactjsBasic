@@ -18,7 +18,6 @@ const rootReducer = (state = initState, action) => {
             let users = state.users;
             users = users.filter(item => item.id !== action.payload.id)
             console.log(users)
-
             return {
                 ...state, users
             };
@@ -29,7 +28,7 @@ const rootReducer = (state = initState, action) => {
             return {
                 ...state, users: [...state.users, user]
             }
-            
+
         default:
             return state;
     }
